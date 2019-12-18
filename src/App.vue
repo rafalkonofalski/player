@@ -22,7 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* background: red url("bg.jpg") no-repeat center center; */
+  background: red url("./assets/bg.jpg") no-repeat center center;
   width: 800px;
   height: 600px;
   display: flex;
