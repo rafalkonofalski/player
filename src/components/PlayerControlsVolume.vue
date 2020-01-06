@@ -1,7 +1,7 @@
 <template>
   <div class="volume-control">
     <div class="volume-control__bar">
-      <div class="volume-control__button">
+      <div class="volume-control__button" style="left: 50%">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -30,13 +30,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'PlayerControlsVolume',
+};
 </script>
 
-<style>
+<style lang="scss">
   .volume-control {
     &__bar {
-
+      height: 7px;
+      background-color: #fff;
+      position: relative;
     }
 
     &__button {
@@ -44,7 +48,23 @@ export default {};
       height: 22px;
       border-radius: 50%;
       background-color: #fff;
-      box-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      transform: translate(-7px, -8px);
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 22px;
+        height: 7px;
+        width: 360px;
+        background-color:#ed5e74;
+      }
     }
   }
 </style>
