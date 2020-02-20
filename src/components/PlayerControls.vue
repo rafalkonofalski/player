@@ -28,30 +28,62 @@
       </svg>
     </PlayerControlsButton>
     <PlayerControlsButton mode="dark">
-      <svg 
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="13px" height="13px">
-        <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
-        d="M2.881,6.500 L12.500,0.500 L12.500,12.500 L2.881,6.500 ZM0.500,12.477 L0.500,0.500 L2.881,0.500 L2.881,6.500 L2.881,12.477 L0.500,12.477 Z"/>
+        width="13px"
+        height="13px"
+      >
+        <path
+          fill-rule="evenodd"
+          fill="rgb(255, 255, 255)"
+          d="M2.881,6.500 L12.500,0.500 L12.500,12.500 L2.881,6.500 ZM0.500,12.477 L0.500,0.500 L2.881,0.500 L2.881,6.500 L2.881,12.477 L0.500,12.477 Z"
+        />
       </svg>
     </PlayerControlsButton>
-    <PlayerControlsButton mode="dark" size="big">
-      <svg 
+    <PlayerControlsButton
+      mode="dark"
+      size="big"
+      class="play"
+      @buttonClicked="isPlaying = !isPlaying"
+    >
+      <svg
+        v-if="isPlaying"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="17px" height="17px">
-        <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
-        d="M10.633,16.500 L10.633,0.500 L16.500,0.500 L16.500,16.500 L10.633,16.500 ZM0.500,0.500 L6.367,0.500 L6.367,16.500 L0.500,16.500 L0.500,0.500 Z"/>
+        version="1.1"
+        width="17"
+        height="17"
+        viewBox="0 0 17 17"
+      >
+        <path d="M152.443 136.417l207.114 119.573-207.114 119.593z" fill="#fff" />
+      </svg>
+      <svg
+        v-else
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="17px"
+        height="17px"
+      >
+        <path
+          fill-rule="evenodd"
+          fill="rgb(255, 255, 255)"
+          d="M10.633,16.500 L10.633,0.500 L16.500,0.500 L16.500,16.500 L10.633,16.500 ZM0.500,0.500 L6.367,0.500 L6.367,16.500 L0.500,16.500 L0.500,0.500 Z"
+        />
       </svg>
     </PlayerControlsButton>
     <PlayerControlsButton mode="dark">
-      <svg 
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="13px" height="13px">
-        <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
-        d="M10.118,12.500 L10.118,6.500 L10.118,0.522 L12.500,0.522 L12.500,12.500 L10.118,12.500 ZM0.500,0.500 L10.118,6.500 L0.500,12.500 L0.500,0.500 Z"/>
+        width="13px"
+        height="13px"
+      >
+        <path
+          fill-rule="evenodd"
+          fill="rgb(255, 255, 255)"
+          d="M10.118,12.500 L10.118,6.500 L10.118,0.522 L12.500,0.522 L12.500,12.500 L10.118,12.500 ZM0.500,0.500 L10.118,6.500 L0.500,12.500 L0.500,0.500 Z"
+        />
       </svg>
     </PlayerControlsButton>
     <PlayerControlsButton>
@@ -70,25 +102,34 @@
         />
       </svg>
     </PlayerControlsButton>
+    {{ isPlaying }}
   </div>
 </template>
 
 <script>
-import PlayerControlsButton from './PlayerControlsButton.vue';
+import PlayerControlsButton from "./PlayerControlsButton.vue";
 
 export default {
-  name: 'PlayerControls',
+  name: "PlayerControls",
   components: {
-    PlayerControlsButton,
+    PlayerControlsButton
   },
+  data: () => ({
+    isPlaying: false
+  }),
+  methods: {
+    setState(e) {
+      this.isPlaying = e;
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-  .player-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px 30px 0;
-  }
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px 30px 0;
+}
 </style>
