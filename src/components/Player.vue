@@ -40,7 +40,7 @@ export default {
 .player {
   width: 360px;
   height: 480px;
-  background-color: #eeeff5;
+  background-color: #eeeff0;
   border-radius: 26px;
   overflow: hidden;
   position: relative;
